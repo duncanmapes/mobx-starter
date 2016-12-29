@@ -11,7 +11,7 @@ render(
   <AppContainer>
     <App appState={appState} />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if (module.hot) {
@@ -22,7 +22,7 @@ if (module.hot) {
       <AppContainer>
         <NextApp appState={appState} />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }
