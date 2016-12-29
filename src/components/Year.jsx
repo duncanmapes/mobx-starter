@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import DevTools from 'mobx-react-devtools';
 import Week from './Week';
 import { weeksInYear } from '../constants';
 
@@ -11,8 +10,11 @@ class Year extends Component {
 
     const weeks = weeksInYear.map((week) => <Week key={week} weekCount={week} yearCount={this.props.thisYear} />);
     
+    let isPast = this.props.appState.today.year > this.props.thisYear ? 'isPast' : '' ;
+    let cssClasses = `${isPast} year-item`;
+
     return (
-        <li className="year-item" data-year={this.props.thisYear}>
+        <li className={cssClasses} data-year={this.props.thisYear}>
             <ul className="weeks-year">
                 {weeks}
             </ul>

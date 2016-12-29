@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import DevTools from 'mobx-react-devtools';
 import Year from './Year';
 import { lifeExpectancy } from '../constants';
 require('../scss/main.scss');
 @observer
 class App extends Component {
   render() {
-    let Years = lifeExpectancy.map((year) => <Year key={year} appState={this.props.appState} thisYear={year} />);
+    let Years = this.props.appState.expectedYears.map((year) => 
+      <Year key={year} appState={this.props.appState} thisYear={year} />
+    );
   
     return (
       <div>
+      <div>Today is: {this.props.appState.today.week}</div>
         <ul className="yearsWrapper">{Years}</ul>
       </div>
     );

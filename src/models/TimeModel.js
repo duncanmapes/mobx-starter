@@ -29,6 +29,7 @@ export default class TimeModel {
         };
     }
 
+
     static fromJS(store, object) {
         return new TimeModel(store, object.id, object.birthday, object.gender);
     }

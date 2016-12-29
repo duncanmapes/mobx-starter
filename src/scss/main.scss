@@ -1,13 +1,20 @@
+$light-border-color: #c2c2c2;
+$light-bg-color: #e6e6e6;
+$dark-bg-color: #8c8c8c;
+$blue-bg-color: #4191D6;
 body {
     margin: 0;
     padding: 0;
 }
 
 .yearsWrapper {
-    margin: 0 auto;
+    margin: 25px auto;
     width: 95%;
     padding: 0;
     list-style: none;
+    .year-item {
+        width: 100%;
+    }
 }
 
 .weeks-year {
@@ -18,12 +25,19 @@ body {
     .week {
         margin: .25%;
         border-radius: 25px;
-        width: 1.25vw;
-        height: 1.25vw;
-        background-color: #ffde00;
+        width: 1.1vw;
+        height: 1.1vw;
+        background-color: $light-bg-color;
         display: inline-block;
+        border-color: $light-border-color;
+        border-width: .5px;
+        border-style: solid;
         &:hover {
-            background-color: blue;
+            background-color: $light-bg-color;
+            border-color: black;
+        }
+        .isPast & {
+            background-color: $blue-bg-color;
         }
     }
 }

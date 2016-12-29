@@ -10,4 +10,4 @@ var rows = [];
 for (var i = 1; i <= 80; i++) {
     rows.push(i);
 }
-export const lifeExpectancy = rows;
+export const lifeExpectancy = 80;

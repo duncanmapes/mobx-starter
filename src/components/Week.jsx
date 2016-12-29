@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import DevTools from 'mobx-react-devtools';
 
 @observer
 class Week extends Component {
@@ -12,7 +11,7 @@ class Week extends Component {
   }
 
   loadWeek = () => {
-    console.log(this,'test the focus');
+    //console.log(this,'test the focus');
   }
 
 };
