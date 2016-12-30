@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import Year from './Year';
+import InfoForm from './InfoForm';
 
 require('../scss/main.scss');
 
@@ -26,6 +27,7 @@ class App extends Component {
 
     return (
       <div>
+        <InfoForm />
         <div>Today is: {this.props.appState.today.week}</div>
         <ul className="yearsWrapper">{Years}</ul>
       </div>
