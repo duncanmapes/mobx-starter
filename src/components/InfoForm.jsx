@@ -5,7 +5,29 @@ import { DaysArray, MonthsArray, YearsArray } from '../constants';
 @observer
 class InfoForm extends Component {
 
+  submitInfo = (e) => {
+    e.preventDefault();
+
+    const info = {
+      gender: this.refs.gender.value,
+      birthday: {
+        year: this.refs.year.value,
+        month: this.refs.month.value,
+        day: this.refs.day.value
+      }
+    }
+
+    this.updateState(info);
+  }
+
+  updateState = (data) => {
+    this.props.appState.birthday = data.birthday;
+    this.props.appState.gender = data.gender;
+  }
+
   render() {
+
+
     const daySelect = DaysArray.map(day =>
       <option key={day} value={day}>
         {day}
@@ -24,27 +46,27 @@ class InfoForm extends Component {
       </option>,
     );
 
-
     return (
-      <form>
+      <form name="birth-info-form" onSubmit={this.submitInfo}>
         <div>
-          <select id="form-select-gender">
-            <option>Male</option>
-            <option>Female</option>
+          <select ref="gender" id="form-select-gender">
+            <option key="male" value="male">Male</option>
+            <option key="female" value="female">Female</option>
           </select>
         </div>
         <div>
-          <select id="form-select-day">
+          <select ref="day" id="form-select-day">
             {daySelect}
           </select>
-          <select id="form-select-month">
+          <select ref="month" id="form-select-month">
             {monthsSelect}
           </select>
-          <select id="form-select-year">
+          <select ref="year" id="form-select-year">
             {YearSelect}
           </select>
-
-
+        </div>
+        <div>
+          <button type="submit" >Submit</button>
         </div>
 
       </form>

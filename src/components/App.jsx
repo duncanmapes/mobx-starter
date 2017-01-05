@@ -20,16 +20,29 @@ class App extends Component {
     this.props.appState.addNewYear(theNextYear);
   }
 
-  render() {
+  checkForBirthday = () => {
+    const birthday = this.props.appState.birthday;
+
     const Years = this.props.appState.expectedYears.map(year =>
       <Year key={year} appState={this.props.appState} thisYear={year} />,
     );
 
+    if (birthday) {
+      return <ul className="yearsWrapper">{Years}</ul>;
+    }
+    return <InfoForm appState={this.props.appState} />;
+  }
+
+
+
+  render() {
+
+
+    const Main = this.checkForBirthday();
+
     return (
       <div>
-        <InfoForm />
-        <div>Today is: {this.props.appState.today.week}</div>
-        <ul className="yearsWrapper">{Years}</ul>
+        {Main}
       </div>
     );
   }

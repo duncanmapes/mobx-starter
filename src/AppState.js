@@ -11,6 +11,7 @@ class AppState {
   @observable timer = 0;
   @observable years = [1, 2, 3, 4, 5];
   @observable expectedYears = [];
+  @observable birthday = {};
 
 
   constructor() {
@@ -28,6 +29,8 @@ class AppState {
       day: todayObj.dayOfYear(),
       year: todayObj.year(),
     };
+
+    this.birthday = null;
 
     this.setExpectedYears(1983);
   }

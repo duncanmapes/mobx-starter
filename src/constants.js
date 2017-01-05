@@ -56,7 +56,7 @@ let i = currentYear;
 rows = [];
 
 while (i >= startYear) {
-  console.log(i);
+  //console.log(i);
   rows.push(i);
   i = i - 1;
 }
@@ -66,6 +66,6 @@ rows = [];
 i = 1;
 while (i <= 31) {
   rows.push(i);
-  i = i + 1;
+  i++;
 }
 export const DaysArray = rows;
